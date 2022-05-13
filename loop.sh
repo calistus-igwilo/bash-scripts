@@ -35,3 +35,10 @@ num=1
 until [ $num -gt 10 ]; do  # It evaluates as long as condition is false. It is the oppostie of while loop
     echo $(($num * 3))
     num=$(($num+1))
+
+# Traverse Array
+prime=(2 3 5 7 11 15 17 19 23 29)
+for i in "${prime[@]}"; do
+   echo $i 
+done
+
