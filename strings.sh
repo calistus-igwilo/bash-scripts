@@ -43,4 +43,14 @@ actor="JULIA ROBERTS"
 echo ${legend^^} # convert all to uppercase 
 echo ${actor,,} # convert all to lowercase
 
+echo ${legend^} # convert first letter to uppercase
+echo ${legend,} # convert first letter to lowercase
 
+echo ${legend^^[jn]} # convert all occurence of substr to uppercase
+
+# Bash script to trim strings
+# 1. Remove all astericks (*) in the string
+# 2. Change all letters to uppercase
+# 3. Output the updated string to the terminal
+echo "Please enter a string: "
+read 
