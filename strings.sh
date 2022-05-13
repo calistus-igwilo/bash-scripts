@@ -29,7 +29,7 @@ echo ${foss/free/popular}
 
 # Delete Substring
 # ${string/substr}
-fact="Sun is a big star"
+fact="Sun is a big star, very big"
 fact=${fact/big}
 
 cell="080-334-1712"
@@ -52,5 +52,9 @@ echo ${legend^^[jn]} # convert all occurence of substr to uppercase
 # 1. Remove all astericks (*) in the string
 # 2. Change all letters to uppercase
 # 3. Output the updated string to the terminal
-echo "Please enter a string: "
-read 
+
+echo -n "Please enter a string: "
+read str
+str=`echo ${str//\*}`
+str=`echo ${str^^}`
+echo "Updated string: $str"
