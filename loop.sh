@@ -42,3 +42,20 @@ for i in "${prime[@]}"; do
    echo $i 
 done
 
+# break statement
+for ((i=1; i<=10; i++)); do
+    echo $i 
+    if [ $i -eq 3 ]; then 
+        break    # exit the loop
+    fi
+done
+
+# continue Statement
+for ((i=1; i<=10; i++)); do 
+    if [ $(( $i % 2)) -eq 0 ]
+        continue   # skip the current iteration. It does not exit the loop
+    fi 
+    echo $i 
+done 
+
+
