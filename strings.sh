@@ -58,3 +58,9 @@ read str
 str=`echo ${str//\*}`
 str=`echo ${str^^}`
 echo "Updated string: $str"
+
+# Check whether a directory is included in the PATH variable:
+if ! echo ${PATH} |grep -q /usr/games
+then
+  PATH=$PATH:/usr/games
+fi
