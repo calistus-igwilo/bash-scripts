@@ -10,6 +10,14 @@ str2=" Robot"
 str3=$str1$str2
 echo $str3
 
+# Append operator +=
+var=abc
+var+=def
+echo "$var"
+# abcdef
+
+
+
 # Finding Substrings
 # expr index string substr
 str="Bash is Cool"
@@ -22,6 +30,9 @@ echo ${foss:0:6} #extract  from the begining to index 6 (Fedora)
 echo ${foss:12} #extract from index 12 to the end (free operating system)
 echo ${foss:17:9} #extract from index 17 upto 9 characters after that (operating)
 
+string="01234567890abcdefgh"
+echo ${string: -7:2} # bc
+
 # Replace Substrings
 # ${string/old/new}
 foss="Fedora is a free operating system"
@@ -30,7 +41,7 @@ echo ${foss/free/popular}
 # Delete Substring
 # ${string/substr}
 fact="Sun is a big star, very big"
-fact=${fact/big}
+fact=${fact/big}  # deletes the first occurrence of "big"
 
 cell="080-334-1712"
 cell=${cell/-}  # removes the first occurence of substr
@@ -53,14 +64,39 @@ echo ${legend^^[jn]} # convert all occurence of substr to uppercase
 # 2. Change all letters to uppercase
 # 3. Output the updated string to the terminal
 
-echo -n "Please enter a string: "
+echo -n "Please enter a string: "  # -n do not print the trailing newline character
 read str
 str=`echo ${str//\*}`
 str=`echo ${str^^}`
 echo "Updated string: $str"
 
+# check valid names
+[!a-zA-Z_]*  # does not begin with a small letter, a capital letter or underscore
+*[!a-zA-z0-9_]*  # does not contain a small letter, a capital letter or underscore
+
 # Check whether a directory is included in the PATH variable:
-if ! echo ${PATH} |grep -q /usr/games
+if ! echo ${PATH} | grep -q /usr/games
 then
   PATH=$PATH:/usr/games
 fi
+
+# compare lexical positions of string
+str1="abc"
+str2="def"
+test str1 \< str2  # \ is used to escape < to avoid redirection
+echo "exit status for str1 < str2: $?"
+
+# Repeat Character to a Given Length
+repeat_character()  
+{
+    #@ USAGE: repeat_character string number_of_times
+    repeat=
+    while (( ${#repeat} < $2 ))
+    do
+        repeat+=$1
+    done 
+}
+# test the repeat_character function
+repeat_character % 40
+printf "%s\n" "$repeat"
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
