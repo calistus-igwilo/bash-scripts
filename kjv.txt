@@ -1,0 +1,4 @@
+Genesis:001:001:In the beginning God created the heaven and the earth.
+Exodus:020:013:Thou shalt not kill.
+Exodus:022:018:Thou shalt not suffer a witch to live.
+John:011:035:Jesus wept.
