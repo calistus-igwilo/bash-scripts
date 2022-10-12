@@ -59,3 +59,17 @@ for ((i=1; i<=10; i++)); do
 done 
 
 
+function match_uppercase() {
+  #typeset -a data=("$@")
+  # Write your code here
+  cnt=0
+  for value in "${my_array[@]}"; 
+  do
+    if [[ value =~ [[:upper:]] ]]; then
+        cnt=$((cnt+1))
+    fi
+  done
+   echo $cnt
+}
+
+match_uppercase johny Mary Jane godwin

@@ -100,3 +100,52 @@ repeat_character()
 repeat_character % 40
 printf "%s\n" "$repeat"
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+# repeat_character function can be sped up by concatenating more than one 
+# instance in each loop so that the length increases geometrically. Then trim
+# it down to desired length.
+repeat_character2() {
+    #@ USAGE: repeat_character string number_of_times
+    repeat2=$1
+    while (( ${#repeat} < $2 ))  # loop until string exceeds desired length
+    do
+        repeat2=$repeat2$repeat2$repeat2  
+    done
+    repeat2="${repeat2:0:$2}"  # trim to desired length
+}
+# test the repeat_character2 function
+repeat_character2 % 40
+printf "%s\n" "$repeat2"
+
+
+# Print a warning message with a border and a beep
+alert() {
+    #@ USAGE: alert message border
+    # it calls the repeat_character function
+    repeat_character2 "${2:-#}" $(( ${#1} + 8 )) # adds 8 to the length of message
+    printf '\a%s\n' "$repeat2"      # \a is BELL
+    printf '%2.2s %s %2.2s\n' "$repeat2" "$1" "$repeat2"
+    printf '%s\n' "$repeat2"
+}
+
+alert "double-check before you submit" "#"
+######################################
+## double-check before you submit ##
+######################################
+
+
+###############
+# Test String #
+###############
+test "$a" = "$b"
+[ "$q" != "$b" ]
+
+# the -z and -n operators return successfully if their arguments
+# are empy or nonempty
+[ -z "" ]
+echo $?     # 0
+
+test -n ""
+echo $1     # 1
+
+

@@ -18,3 +18,10 @@ elif [ -d $file ]; then
 else
     echo "$file does not exist"
 fi
+
+dir="/Users/calistus/Documents"
+if [ -d "$dir" ] && cd "$dir"
+then
+    echo "$PWD"
+fi
+

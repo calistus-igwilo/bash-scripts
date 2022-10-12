@@ -50,7 +50,7 @@ printf "$pre%s$post\n" "$@"
 # first term is expanded, giving the following:
 # 1{a..c} 2{a..c} 3{a..c}
 
-./expansion.sh {{1..3},{a..c}}
+./expansion.sh {{1..3}{a..c}}
 # :1a:
 # :1b:
 # :1c:
